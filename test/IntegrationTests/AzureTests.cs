@@ -14,8 +14,6 @@
 // limitations under the License.
 // </copyright>
 
-#if NET6_0_OR_GREATER
-
 using IntegrationTests.Helpers;
 using Xunit.Abstractions;
 
@@ -34,7 +32,7 @@ public class AzureTests : TestHelper
 
     [Theory]
     [Trait("Category", "EndToEnd")]
-    [Trait("Containers", "Linux")]
+    [Trait("Containers", "Any")]
     [MemberData(nameof(LibraryVersion.Azure), MemberType = typeof(LibraryVersion))]
     public void SubmitsTraces(string packageVersion)
     {
@@ -59,4 +57,3 @@ public class AzureTests : TestHelper
         collector.AssertExpectations();
     }
 }
-#endif
